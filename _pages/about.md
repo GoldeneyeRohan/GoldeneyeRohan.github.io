@@ -14,7 +14,7 @@ I believe that thorough knowledge of an entire autonomous system is integral to 
 
 | Desired Properties | Model-Based Control | Learned Approaches |
 |---|---|---|
-| Highly Precise Control | - [x] | - [] |
+| Highly Precise Control | :heavy_check_mark: | :x: |
 | Provably Safe Behaviour | [x] |  [] |
 | stuff | <ul><li> [x] stuff </li></ul> | <ul><li>- [x] </li></ul> | 
 
