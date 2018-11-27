@@ -16,7 +16,7 @@ I believe that thorough knowledge of an entire autonomous system is integral to 
 |---|---|---|
 | Highly Precise Control | - [x] | - [] |
 | Provably Safe Behaviour | [x] |  [] |
-| stuff | <ul><li> - [x] </li></ul> | <ul><li> - [x] </li></ul> | 
+| stuff | <ul><li>- [x] </li></ul> | <ul><li>- [x] </li></ul> | 
 
 - [x] laas
 - [ ] laas
