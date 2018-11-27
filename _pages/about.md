@@ -14,9 +14,13 @@ I believe that thorough knowledge of an entire autonomous system is integral to 
 
 | Desired Properties | Classical Model-Based Control | Learned Approaches |
 |---|---|---|
-| Highly Precise Control | - [X] | - [] |
+| Highly Precise Control | - [X] list | - [] list|
 | Provably Safe Behaviour | -[X] | - [] |
 | stuff | -[X] | - [] | 
+
+- [] laas
+- [] laas
+- [x] kaas
 
 News
 ======
