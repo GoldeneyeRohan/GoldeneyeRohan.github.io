@@ -8,15 +8,15 @@ redirect_from:
   - /about.html
 ---
 
-I am a 4th year undergraduate at the University of California, Berkeley, double majoring in Mechanical Engineering and Electrical Engineering and Computer Science (EECS). I grew up in Eindhoven, the Netherlands, and lived there untill coming to the United States to attend university three years ago. Currently, I am most interested in robotics and autonomous systems, but have performed research in aerospace design as well. 
+I am a 4th year undergraduate at the University of California, Berkeley, double majoring in Mechanical Engineering and Electrical Engineering and Computer Science (EECS). I grew up in Eindhoven, the Netherlands, and lived there untill coming to the United States to attend university three years ago. Currently, I am most interested in robotics and autonomous systems, but have performed research in aerospace design as well. Outside the classroom I am involved in research on campus, the California Sailing Team, and the Pi Kappa Phi social fraternity.
 
-I believe that thorough knowledge of an entire autonomous system is integral to its successful implementation: from the vehicle's mechanics and dynamics, to the algorithms that control it and the circuits that drive it. I am currently working on decentralized data-driven control strategies for autonomous racing with multiple agents in the [Model Predictive Control Lab](http://www.mpc.berkeley.edu/) under professor F. Borrelli. 
+I believe that thorough knowledge of an entire autonomous system is integral to its successful implementation: from the vehicle's design, it's mechanics and dynamics, to the algorithms that control it and the circuits that drive it. I am currently working on decentralized data-driven control strategies for autonomous racing with multiple agents in the [Model Predictive Control Lab](http://www.mpc.berkeley.edu/) under professor F. Borrelli. 
 
-| Desired Properties | Classical Model-Based Control | Learned Approaches |
+| Desired Properties | Model-Based Control | Learned Approaches |
 |---|---|---|
 | Highly Precise Control | - [x] | - [] |
 | Provably Safe Behaviour | [x] |  [] |
-| stuff | <ul><li>- [x] </li></ul> | <ul><li>- [x] </li></ul> | 
+| stuff | <ul><li> [x] stuff </li></ul> | <ul><li>- [x] </li></ul> | 
 
 - [x] laas
 - [ ] laas
