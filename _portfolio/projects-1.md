@@ -7,7 +7,7 @@ collection: portfolio
 # Ros Drone Project
 This project documents my attempt to build a fully workable drone using the Robotic Operating System from scratch. Much like the [BARC-project](http://www.barc-project.com/), a low cost robotics platform is an essential part of lowering the entry barrier for robotics. This platform now exists for RC cars, but I have not seen drones running on ROS that are easily available just yet. Few research project on autonomous aircraft ever make it out of simulation or highly controlled lab rooms, and I think this could help those projects make that transition.
 
-![Picture of the finished drone](images/DronePic.jpg "Drone Pic")
+![Picture of the finished drone](/images/DronePic.jpg)
 
 ## CAD files
 All CAD files can be found in [this](https://github.com/GoldeneyeRohan/RohanDrone/tree/master/CADs) directory, including an assembly with all the parts. The frame is intended to be CNC-ed, and an Adobe Illustrator vector file is included so you can easily go and laser-cut or water-jet the frame from a piece of plywood or metal.
