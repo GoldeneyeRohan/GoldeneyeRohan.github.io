@@ -1,6 +1,6 @@
 ---
 title: "Goldeneye BARC project"
-excerpt: "Berkeley Autonomous Race Car <br/><img src='/images/car2.jpg'>"
+excerpt: "Berkeley Autonomous Race Car <br/><img src='/images/car2_fpic.jpg'>"
 collection: portfolio
 ---
 
