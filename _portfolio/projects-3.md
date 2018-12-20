@@ -1,7 +1,8 @@
 ---
 title: "Multi-Vehicle LMPC Racing"
-excerpt: "Decentralized Learning Model Predictive Control for Multi-Vehicle Racing <br/><img src='/images/car2.jpg'>"
+excerpt: "Learning Model Predictive Control for Multi-Agent Autonomous Racing <br/><img src='/images/LMPC-fpic.jpg'>"
 collection: portfolio
 ---
 
-kaaaaaaaaaaaaaaaaaaas
+
+
