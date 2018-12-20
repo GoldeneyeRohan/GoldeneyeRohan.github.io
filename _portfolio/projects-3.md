@@ -5,6 +5,8 @@ collection: portfolio
 ---
 
 
-$$ \begin{bmatrix} x \\ y \\ z \end{bmatrix} $$ [^fn1]
+Citation one test [^fn1], citation 2 test [^fn2]
 
-[^fn1]: [U. Rosolia and F. Borrelli: "Learning Model Predictive Control for Iterative Task. A Data-Driven Control Framework", in IEEE Transaction on Automatic Control (2018).]
+[^fn1]: U. Rosolia and F. Borrelli: "Learning Model Predictive Control for Iterative Task. A Data-Driven Control Framework", in IEEE Transaction on Automatic Control (2018).
+
+[^fn2]: Brunner M., Rosolia U., Gonzales J. and Borrelli F. (2017), "Repetitive Learning Model Predictive Control: An Autonomous Racing Example", In Proceedings of 56th Conference on Decision and Control, 12, 2017.
