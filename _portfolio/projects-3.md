@@ -7,7 +7,12 @@ collection: portfolio
 
 Citation one test [^fn1], citation 2 test [^fn2]
 
-$$  \min_{x < y}^{x^T Q x}  $$
+$$  \begin{equation} \begin{aligned}
+& \underset{x}{\text{minimize}}
+& & f_0(x) \\
+& \text{subject to}
+& & f_i(x) \leq b_i, \; i = 1, \ldots, m.
+\end{aligned} \end{equation} $$
 
 [^fn1]: U. Rosolia and F. Borrelli: "Learning Model Predictive Control for Iterative Task. A Data-Driven Control Framework", in IEEE Transaction on Automatic Control (2018).
 
