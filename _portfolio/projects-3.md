@@ -7,11 +7,7 @@ collection: portfolio
 
 Citation one test [^fn1], citation 2 test [^fn2]
 
-$$ \min_{\forall \mathbf{x}_t \ \forall \mathbf{u}_t} & \  \mathbf{x}_n P \mathbf{x}\transpose_n + \sum_{t = 0}^{n-1} \mathbf{x}_t Q \mathbf{x}\transpose_t + \mathbf{u}_t R \mathbf{u}\transpose_t \\ 
-    s.t. \phantom{.} \mathbf{x}_{t+1} &= A\mathbf{x}_t + B\mathbf{u}_t + b_g \ \forall t \in [0 \ldots n-1] \nonumber \\
-    \mathbf{x}_0 &= \mathbf{x}_0 \nonumber \\
-    \mathbf{x}_t &\in X \ \forall t \in [1 \ldots n] \nonumber \nonumber \\ 
-    \mathbf{u}_t &\in U \ \forall t \in [0 \ldots n-1] \nonumber  $$
+$$  \min_{x < y}^{x^T Q x}  $$
 
 [^fn1]: U. Rosolia and F. Borrelli: "Learning Model Predictive Control for Iterative Task. A Data-Driven Control Framework", in IEEE Transaction on Automatic Control (2018).
 
