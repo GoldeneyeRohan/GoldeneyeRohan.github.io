@@ -18,7 +18,7 @@ To do this, a LMPC style CFTOC is formulated at each timestep:
 
 $$  J^{LMPC, j}_{t \rightarrow t + N}(x_t^j) = \underset{\mathbf{U}^j_t}{\text{minimize}} \sum_{k = t}^{t + N -1} h(x_{k | t}, u_{k | t}) + Q^{j-1}(x_{t + N | t}) $$
 
-![Green vehicle executing the LMPC strategy avoids and overtakes the blue car](/images/overtake.jpg)   
+					![Green vehicle executing the LMPC strategy avoids and overtakes the blue car](/images/overtake.jpg)   
 
 <!-- $$  
 \underset{x}{\text{minimize}} f_0(x) \\
