@@ -24,13 +24,17 @@ x_{t+N | t} \in \mathcal{SS}^{j-1} \\
 x_{k | t } = x[t], \ \ \ \ k = t 
 $$
 
-Here h(x,u) is the stage cost at each timestep, x[k+1] = f(x[k], u[k]) is the discrete time difference equation governing the system, X_k is the feasible state space at time step k, and U_k is the feasible input space. To make this an LMPC approach, the terminal state along the prediction horizon is constrained to lie in the Safe Set (SS), defined as the union of all states from previous trials where the control task was executed successfully. The Q function is defined as the minimum cost-to-go for a point in the Safe Set over all iterations where that datapoint was recorded: 
+Here h(x,u) is the stage cost at each timestep, x[k+1] = f(x[k], u[k]) is the discrete time difference equation governing the system, X_k is the feasible state space at time step k, and U_k is the feasible input space. To make this an LMPC approach, the terminal state along the prediction horizon is constrained to lie in the Safe Set (SS), defined as the union of all states measured during previous trials where the control task was executed successfully. The Q function is defined as the minimum cost-to-go for a point in the Safe Set over all iterations where that datapoint was recorded: 
 
-$$ \mathcal{SS}^{j-1} = \bigcup_{i = 0}^{j} \bigcup_{k = 0}^{T_i} x_k^i $$ 
+$$ \mathcal{SS}^{j} = \bigcup_{i = 0}^{j} \bigcup_{k = 0}^{T_i} x_k^i $$ 
 
 Where j is the number of completed trials and Ti is the Time at which trial i was completed. Therefore: 
 
 $$ Q: \mathcal{SS} \subseteq \mathbb{R}^n \mapsto \mathbb{R} $$
+
+This approach, documented in literature [^fn1], allows us to approximate the value function based on previous data. We can extend this approach to achieve the desired performance in the presence of multiple adversarial agents. First off, we can collect similar or reduced state data from the other agents. Since all the vehicles are racing on the same track, it is a fair assumption that the position of the other vehicles on the track can be observed by the other cars. Based off the data on the other agent's behavior, predictions can be formed of what the other agent is most likely to do next. Other than game-theoretic approaches to a competitive problem, such predictions are agnostic about what the other agent's strategy. They can be generated simply, such as inference based on the convex hull of the recorded trajectories (e.g. the other agent is most likely to act similarly to its past behavior), or via more complicated statistical approaches. 
+
+Once a prediction has been formed, two adjustements to the LMPC problem statement need to be made. 
 
 
 ![Green vehicle executing the LMPC strategy avoids and overtakes the blue car](/images/overtake.jpg)   
