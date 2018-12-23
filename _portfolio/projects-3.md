@@ -16,14 +16,16 @@ LMPC strategies have been shown to rapidly learn from previous experience and ex
 
 To do this, a LMPC style CFTOC is formulated at each timestep: 
 
-$$  J^{LMPC, j}_{t \rightarrow t + N}(x_t^j) = \underset{\mathbf{U}^j_t}{\text{minimize}} \sum_{k = t}^{t + N -1} h(x_{k | t}, u_{k | t}) + Q^{j-1}(x_{t + N | t}) $$
+$$  J^{LMPC, j}_{t \rightarrow t + N}(x_t^j) = \underset{\mathbf{U}^j_t}{\text{minimize}} \sum_{k = t}^{t + N -1} h(x_{k | t}, u_{k | t}) + Q^{j-1}(x_{t + N | t}) \\ 
+\text{subject to} x_{k+1 | t} = f(x_{k|t}, u_{k | t}) \forall k \in [t , \dots, t + N - 1 ] \\
+x_{k | t} \in \mathcal{X}  \forall k \in [t , \dots, t + N] \\
+u_{k | t} \in \mathcal{U}  \forall k \in [t , \dots, t + N] \\
+x_{t+N | t} \in \mathcal{SS}^{j-1} \\
+x_{k | t } = x[t], k = t 
+$$
 
-					![Green vehicle executing the LMPC strategy avoids and overtakes the blue car](/images/overtake.jpg)   
+![Green vehicle executing the LMPC strategy avoids and overtakes the blue car](/images/overtake.jpg)   
 
-<!-- $$  
-\underset{x}{\text{minimize}} f_0(x) \\
-\text{subject to}
- f_i(x) \leq b_i, \; i = 1, \ldots, m. $$ -->
 
 [^fn1]: U. Rosolia and F. Borrelli: "Learning Model Predictive Control for Iterative Task. A Data-Driven Control Framework", in IEEE Transaction on Automatic Control (2018).
 
