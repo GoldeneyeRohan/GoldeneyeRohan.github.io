@@ -17,13 +17,14 @@ LMPC strategies have been shown to rapidly learn from previous experience and ex
 To do this, a LMPC style CFTOC is formulated at each timestep: 
 
 $$  J^{LMPC, j}_{t \rightarrow t + N}(x_t^j) = \underset{\mathbf{U}^j_t}{\text{minimize}} \sum_{k = t}^{t + N -1} h(x_{k | t}, u_{k | t}) + Q^{j-1}(x_{t + N | t}) \\ 
-\text{subject to} \\
- x_{k+1 | t} = f(x_{k|t}, u_{k | t}) \ \ \ \  \forall k \in [t , \dots, t + N - 1 ] \\
+\text{subject to} \ \ \ \ x_{k+1 | t} = f(x_{k|t}, u_{k | t}) \ \ \ \  \forall k \in [t , \dots, t + N - 1 ] \\
 x_{k | t} \in \mathcal{X}_k  \ \ \ \ \forall k \in [t , \dots, t + N] \\
 u_{k | t} \in \mathcal{U}_k \ \ \ \  \forall k \in [t , \dots, t + N] \\
 x_{t+N | t} \in \mathcal{SS}^{j-1} \\
 x_{k | t } = x[t], \ \ \ \ k = t 
 $$
+
+Here h(x,u) is the stage cost at each timestep, x[k+1] = f(x[k], u[k]) is the discrete time difference equation governing the system, X_k is the feasible state space at time step k, and U_k is the feasible input space. 
 
 ![Green vehicle executing the LMPC strategy avoids and overtakes the blue car](/images/overtake.jpg)   
 
