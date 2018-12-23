@@ -24,7 +24,14 @@ x_{t+N | t} \in \mathcal{SS}^{j-1} \\
 x_{k | t } = x[t], \ \ \ \ k = t 
 $$
 
-Here h(x,u) is the stage cost at each timestep, x[k+1] = f(x[k], u[k]) is the discrete time difference equation governing the system, X_k is the feasible state space at time step k, and U_k is the feasible input space. 
+Here h(x,u) is the stage cost at each timestep, x[k+1] = f(x[k], u[k]) is the discrete time difference equation governing the system, X_k is the feasible state space at time step k, and U_k is the feasible input space. To make this an LMPC approach, the terminal state along the prediction horizon is constrained to lie in the Safe Set (SS), defined as the union of all states from previous trials where the control task was executed successfully. The Q function is defined as the minimum cost-to-go for a point in the Safe Set over all iterations where that datapoint was recorded: 
+
+$$ \mathcal{SS}^{j-1} = \bigcup_{i = 0}^{j} \bigcup_{k = 0}^{T_i} x_k^i $$ 
+
+Where j is the number of completed trials and Ti is the Time at which trial i was completed. Therefore: 
+
+$$ Q: \mathcal{SS} \subseteq \mathbb{R}^n \mapsto \mathbb{R} $$
+
 
 ![Green vehicle executing the LMPC strategy avoids and overtakes the blue car](/images/overtake.jpg)   
 
