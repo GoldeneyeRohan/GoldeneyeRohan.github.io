@@ -38,9 +38,13 @@ First off, we can collect similar or reduced state data from the other agents. S
 
 Once a prediction has been formed, two adjustements to the LMPC problem statement need to be made to prevent collisions. Firstly, the Safe-Set needs to be adjusted such that no points in the Safe-Set overlap with the predicted terminal state of the other agent(s), since the terminal constraint in the LMPC problem requires the terminal state along the prediction horizon to lie inside the Safe-Set:
 
-$$ \mathcal{SS}_{adj} = \mathcal{SS} \setminus \mathcal{A_j} $$ 
-Here $$ \mathcal{A_j} = {x \in \mathbb{R}^n | Ax \leq b} $$ is the polyhedron defining the state space occupied by the j'th agent. One might wonder if removing points from the Safe-Set causes trouble 
+$$ \mathcal{SS_{adj}} = \mathcal{SS} \setminus \mathcal{A_j} $$
+
+Here $$ \mathcal{A_j} = \{x \in \mathbb{R}^n | Ax \leq b\} $$ is the polyhedron defining the state space occupied by the j'th agent. One might wonder if removing points from the Safe-Set causes trouble 
 talk about slacking 
-![Green vehicle executing the LMPC strategy avoids and overtakes the blue car](/images/overtake.jpg)   
+
+![Green vehicle executing the LMPC strategy avoids and overtakes the blue car](/images/overtake.jpg)  
+
 [^fn1]: U. Rosolia and F. Borrelli: "Learning Model Predictive Control for Iterative Task. A Data-Driven Control Framework", in IEEE Transaction on Automatic Control (2018).
+
 [^fn2]: Brunner M., Rosolia U., Gonzales J. and Borrelli F. (2017), "Repetitive Learning Model Predictive Control: An Autonomous Racing Example", In Proceedings of 56th Conference on Decision and Control, 12, 2017.
