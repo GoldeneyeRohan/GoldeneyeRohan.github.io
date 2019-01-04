@@ -40,11 +40,15 @@ Once a prediction has been formed, two adjustements to the LMPC problem statemen
 
 $$ \mathcal{SS_{adj}} = \mathcal{SS} \setminus \mathcal{A_j^{t+N}} $$
 
-Here $$ \mathcal{A_j^{k}} = \{x \in \mathbb{R}^n | A^k_j x \leq b \} $$ is the predicted polyhedron defining the state space occupied by the j'th agent on the k'th timestep. Theoretically it could be possible for the control problem to become infeasible if too many points in the Safe-Set have to be removed, as dynamic or input constraints might make it impossible to reach the remaining points in the Safe-Set. However, in practice this is not much of in issue, primarily because a single lap around a track already provides enough data for at least one feasible point to remain in the adjusted Safe-Set. Moreover, predictive control problems are almost always (also in this case) implemented using slack variables on most constraints. This is because in the case that a collision cannot be avoided, one would still want the cars to crash as softly as possible. This opposes a hard implementation where the problem becomes infeasible, no new control action is computed, and the cars crash at full speed. 
+Here A<sub>j</sub><sup>t + N</sup> is the predicted polyhedron defining the state space occupied by the j'th agent on the k'th timestep:
+
+$$ \mathcal{A_j^{k}} = \{x \in \mathbb{R}^n | A^k_j x \leq b \} $$  
+
+Theoretically it could be possible for the control problem to become infeasible if too many points in the Safe-Set have to be removed, as dynamic or input constraints might make it impossible to reach the remaining points in the Safe-Set. However, in practice this is not much of in issue, primarily because a single lap around a track already provides enough data for at least one feasible point to remain in the adjusted Safe-Set. Moreover, predictive control problems are almost always (also in this case) implemented using slack variables on most constraints. This is because in the case that a collision cannot be avoided, one would still want the cars to crash as softly as possible. This opposes a hard implementation where the problem becomes infeasible, no new control action is computed, and the cars crash at full speed. 
 
 The second adjustement to the problem that needs to be made is that the feasible state space at each timestep in the control problem needs to be adjusted to prevent collisions with the predicted states of the other agents: 
 
-$$ \mathcal{X_k}^{adj} = \matcal{X_k} \setminus \mathcal{A_j^{k}} \ \ \ \ \forall k \in [t, \dots, t + N] $$
+$$ \mathcal{X_k}^{adj} = \mathcal{X_k} \setminus \mathcal{A_j^{k}} \ \ \ \ \forall k \in [t, \dots, t + N] $$
 
 This ensures that the trajectory planned along the prediction horizon is safe. A significant consideration that must be made in performing this operation is whether convexity of the problem is maintained or not. In general, an LMPC problem need not be convex, but in practical implementations, ensuring convexity maintains rapid convergence to solutions required for real-time applications. Quite obviously, removing a rectangular region in the middle of the track from the feasible state space, when the rest of the racetrack is still feasible, immediately reduces the feasible state space into a non-convex set. Intuitively speaking, it might not always be obvious whether an overtaking manoevre is better on the right or on the left, further illustrating this non-convexity. 
 
