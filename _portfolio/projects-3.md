@@ -40,8 +40,8 @@ Once a prediction has been formed, two adjustements to the LMPC problem statemen
 
 $$ \mathcal{SS_{adj}} = \mathcal{SS} \setminus \mathcal{A_j} $$
 
-Here $$ \mathcal{A_j} = \{x \in \mathbb{R}^n | Ax \leq b\} $$ is the polyhedron defining the state space occupied by the j'th agent. One might wonder if removing points from the Safe-Set causes trouble 
-talk about slacking 
+Here $$ \mathcal{A_j} = \{x \in \mathbb{R}^n | Ax \leq b\} $$ is the polyhedron defining the state space occupied by the j'th agent. Theoretically it could be possible for the control problem to become infeasible if too many points in the Safe-Set have to be removed, as dynamic or input constraints might make it impossible to reach the remaining points in the Safe-Set. However, in practice this is not much of in issue, primarily because a single lap around a track already provides enough data for at least one feasible point to remain in the adjusted Safe-Set. Moreover, predictive control problems are in practice almost always (also in this case) formulated using slack variables on most or all constraints. This is because in the case that a collision cannot be avoided, one would still want the cars to crash as softly as possible. This opposes a hard implementation where the problem becomes infeasible, no new control action is computed, and the cars crash at full speed. The same is the case for
+keeping the vehicle inside the track or not exceeding other state constraints.  
 
 ![Green vehicle executing the LMPC strategy avoids and overtakes the blue car](/images/overtake.jpg)  
 
