@@ -7,4 +7,4 @@ As the capping project for a graduate course I took on Model Predictive Control,
 
 As this was a graduate level course, projects were required to puth forth some academic novelty, and as far as I am aware, this is the first instance where a control algorithm has been proposed that can achieve a cooperative heavy lifting task in such an unconstrained fashion. [Download full project paper here](/files/ME231A_Public_Version.pdf)
 
-![drones](/images/squarepath.jpg)
+![drones](/images/squarepath_fpic.jpg)
