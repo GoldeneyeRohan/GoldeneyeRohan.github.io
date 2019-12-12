@@ -9,4 +9,4 @@ redirect_from:
 
 {% include base_path %}
 
-To view a PDF copy of my CV, please click *[here](/files/RohanSinhaCV-11-27-2018.pdf)*.
+To view a PDF copy of my CV, please click [__*here*__](/files/RohanSinhaCV-12-8-2019.pdf).
