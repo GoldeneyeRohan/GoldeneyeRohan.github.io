@@ -2,7 +2,6 @@
 title: "RISC-V CPU Design"
 excerpt: "Fully pipelined RISC-V CPU design (ALU, RegFile, Datapath, Control) in logic gate simulator [(read more)](https://rohansinha.nl/portfolio/projects-6/) <br/><img src='/images/datapath_fpic.jpg'>"
 collection: portfolio
-urlcolor: blue
 ---
 
 As the capping project of the Computer Architecture class at UC Berkeley, I designed and built a fully functioning 32-bit CPU implementing the RISC-V Instruction Set Architecture using a logic gate simulation software package called [Logisim](http://www.cburch.com/logisim/). The Reduced Instruction Set Computing paradigm was invented at UC Berkeley by Dave Patterson and John Hennessey, won a Turing award in 2017, and is now used in over 99% of all new chips [^fn1]. Besides this project, the Turing Award Colloquium special lecture given by Prof. Patterson was a real highlight of the course. 
