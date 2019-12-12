@@ -1,6 +1,6 @@
 ---
 title: "Project OLLY (Oversized Load Lifting and Yielding)"
-excerpt: "Cooperative Heavy Load Transport Between Human and Robot on Custom Omni-Directional Robots  <br/><img src='/images/olly_fpic.JPG'>"
+excerpt: "Cooperative Heavy Load Transport Between Human and Robot on Custom Omni-Directional Robots [(read more)](https://rohansinha.nl/portfolio/projects-3/)  <br/><img src='/images/olly_fpic.JPG'>"
 collection: portfolio
 ---
 

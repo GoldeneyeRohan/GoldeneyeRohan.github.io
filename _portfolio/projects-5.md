@@ -1,6 +1,6 @@
 ---
 title: "ROS Drone"
-excerpt: "Low cost open-source drone built on ROS, Raspberry Pi, and Arduino<br/><img src='/images/DronePic_fpic.jpg'>"
+excerpt: "Low cost open-source drone built on ROS, Raspberry Pi, and Arduino [(read more)](https://rohansinha.nl/portfolio/projects-5/)<br/><img src='/images/DronePic_fpic.jpg'>"
 collection: portfolio
 ---
 

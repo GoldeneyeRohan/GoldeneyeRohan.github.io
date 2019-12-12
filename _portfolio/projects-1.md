@@ -1,6 +1,6 @@
 ---
 title: "Multi-Vehicle LMPC Racing"
-excerpt: "Learning Model Predictive Control for Multi-Agent Autonomous Racing <br/><img src='/images/LMPC_fpic.jpg'>"
+excerpt: "Learning Model Predictive Control for Multi-Agent Autonomous Racing [(read more)](https://rohansinha.nl/portfolio/projects-1/) <br/><img src='/images/LMPC_fpic.jpg'>"
 collection: portfolio
 ---
 
