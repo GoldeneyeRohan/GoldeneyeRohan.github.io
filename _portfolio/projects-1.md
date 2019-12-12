@@ -1,78 +1,61 @@
 ---
-title: "ROS Drone"
-excerpt: "Low cost open-source drone built on ROS, Raspberry Pi, and Arduino<br/><img src='/images/DronePic_fpic.jpg'>"
+title: "Multi-Vehicle LMPC Racing"
+excerpt: "Learning Model Predictive Control for Multi-Agent Autonomous Racing <br/><img src='/images/LMPC_fpic.jpg'>"
 collection: portfolio
 ---
 
-# Ros Drone Project
-This project documents my attempt to build a fully workable drone using the Robotic Operating System from scratch. Much like the [BARC-project](http://www.barc-project.com/), a low cost robotics platform is an essential part of lowering the entry barrier for robotics. This platform now exists for RC cars, but I have not seen drones running on ROS that are easily available just yet. Few research project on autonomous aircraft ever make it out of simulation or highly controlled lab rooms, and I think this could help those projects make that transition.
+Recent work in the [Model Predictive Control Lab](mpc.berkeley.edu) at UC Berkeley has focused on data driven control strategies for iterative tasks. Such algorithms, referred to as Iterative Learning Controllers (ILC), are designed to learn from previous experience as a control task is executed over multiple iterations. An example of an ILC strategy, called Learning Model Predictive Control (LMPC) [^fn1] involves repetitively solving a more traditional Constrained Finite Time Optimal Control (CFTOC) problem over a finite (rolling) horizon at a fixed sampling time and applying the first control input to the system at each timestep. The difference with regular MPC strategies is that in LMPC the cost-to-go, often referred to as the value function, is approximated based on data from previous trials. An inductive proof can be done to show that the total cost over a task iteration must be non-increasing with an LMPC strategy, and therefore LMPC strategies converge to optimal solutions not just over the CFTOC horizon, but over the entire control task.[^fn1]
 
-![Picture of the finished drone](/images/DronePic.jpg)
+LMPC strategies have been shown to rapidly learn from previous experience and, as long as certain assumptions are satisfied (such as the being accurate), exhibit the provably safe behavior associated with Model Predictive Controllers. One notable example of LMPC controllers effectively learning to execute a complex task in an optimal fashion is in autonomous racing [^fn2]. In the MPC Lab, cars have been trained to race around racetracks near vehicle performance and handling limits with LMPC strategies. My research work focuses on extending these approaches to enable multiple vehicles to race each other in a safe fashion. The goal is for the cars:
 
-## CAD files
-All CAD files can be found in [this](https://github.com/GoldeneyeRohan/RohanDrone/tree/master/CADs) directory, including an assembly with all the parts. The frame is intended to be CNC-ed, and an Adobe Illustrator vector file is included so you can easily go and laser-cut or water-jet the frame from a piece of plywood or metal.
+* to still converge to globally optimal racing policies
+* to learn the behavior of opponents and predict their strategy
+* to avoid and overtake other vehicles strategically in a safe fashion
 
-## Bill of Materials
-A sparse bill of materials is included [here](https://github.com/GoldeneyeRohan/RohanDrone/tree/master/Parts). I had some parts lying around that I just used, and so I didn't include them in my Bill of Materials. You will still need to buy a: LiPo-battery with a charger, a 5-volt regulator, and some cables to make a wiring harness from to connect everything together. You could buy a ton of connector cables and adaptors, but I prefer to just solder everything together myself. 
+![racing pic](/images/LMPC_fpic.jpg)
 
-|Part|Approx Price|
-|---|---|
-|Raspberry Pi 3+ with SD card | $50|
-|Motors and ESC's| $70|
-|Arduino nano with shield| $20|
-|Propellors|$15|
-|IMU|$30|
-|Frame materials (plywood)| $15|
-|*Total*|$200|
+To do this, a LMPC style CFTOC is formulated at each timestep: 
 
-## Code Setup
-### Raspberry Pi OS and ROS
-You will need to install an operating system on the Raspberry Pi and subsequently install ROS on it. You can install ROS on Raspbian, the OS created by Raspberry pi, but the setup is a bit of a pain in the ass. I have found it easier to install Ubuntu Xenial image with ROS pre-installed on it. You can find instructions for that [here](https://downloads.ubiquityrobotics.com/pi.html). 
+$$  J^{LMPC, j}_{t \rightarrow t + N}(x_t^j) = \underset{\mathbf{U}^j_t}{\text{minimize}} \sum_{k = t}^{t + N -1} h(x_{k | t}, u_{k | t}) + Q^{j-1}(x_{t + N | t}) \\ 
+\text{subject to} \ \ \ \ x_{k+1 | t} = f(x_{k|t}, u_{k | t}) \ \ \ \  \forall k \in [t , \dots, t + N - 1 ] \\
+x_{k | t} \in \mathcal{X}_k  \ \ \ \ \forall k \in [t , \dots, t + N] \\
+u_{k | t} \in \mathcal{U}_k \ \ \ \  \forall k \in [t , \dots, t + N] \\
+x_{t+N | t} \in \mathcal{SS}^{j-1} \\
+x_{k | t } = x[t], \ \ \ \ k = t 
+$$
 
-### ROS Workspace and Nodes
-To use my nodes, you will need to clone my [workspace](https://github.com/GoldeneyeRohan/RDRONE). If you are not familiar with ROS (or git), here is how to do this:
+Here h(x,u) is the stage cost at each timestep, x[k+1] = f(x[k], u[k]) is the discrete time difference equation governing the system, X<sub>k</sub> is the feasible state space at time step k, and U<sub>k</sub> is the feasible input space. To make this an LMPC approach, the terminal state along the prediction horizon is constrained to lie in the Safe Set (SS), defined as the union of all states measured during previous trials where the control task was executed successfully
 
-`cd /directory-where-you-want-your-workspace`
+$$ \mathcal{SS}^{j} = \bigcup_{i = 0}^{j} \bigcup_{k = 0}^{T_i} x_k^i $$ 
 
-`mkdir catkin_ws #some workspace directory name`
+Where j is the number of completed trials and T<sub>i</sub> is the Time at which trial i was completed. The Q function is defined as the minimum cost-to-go for a point in the Safe Set over all iterations where that datapoint was recorded: 
 
-`cd catkin_ws`
+$$ Q: \mathcal{SS} \subseteq \mathbb{R}^n \mapsto \mathbb{R} $$
 
-`mkdir src`
+This approach, documented in literature [^fn1], allows us to approximate the value function based on previous data. As more data is collected, the estimate of the cost-to-go improves and the agent converges to globally optimal behavior over the entire control task (provided the system is linear, otherwise converges to local optima). We can extend this approach to achieve the desired performance in the presence of multiple adversarial agents. 
 
-`catkin_make #skip all the steps up to here if you just want to plop into existing ws`
+First off, we can collect similar or reduced state data from the other agents. Since all the vehicles are racing on the same track, it is a fair assumption that the position of the other vehicles on the track can be observed by the other cars. Based on the data of the other agent's behavior, predictions can be formed of what the other agent is most likely to do next. Other than game-theoretic approaches to a competitive problem, such predictions are agnostic to what the other agent's strategy is. They can be generated simply, such as inference based on the convex hull of the recorded trajectories (e.g. the other agent is most likely to act similarly to its past behavior), or via more complicated statistical approaches. 
 
-`cd src`
+Once a prediction has been formed, two adjustements to the LMPC problem statement need to be made to prevent collisions. Firstly, the Safe-Set needs to be adjusted such that no points in the Safe-Set overlap with the predicted terminal state of the other agent(s), since the terminal constraint in the LMPC problem requires the terminal state along the prediction horizon to lie inside the Safe-Set:
 
-`git clone https://github.com/GoldeneyeRohan/RDRONE.git`
+$$ \mathcal{SS_{adj}} = \mathcal{SS} \setminus \mathcal{A_j^{t+N}} $$
 
-`cd ..`
+Here A<sub>j</sub><sup>t + N</sup> is the predicted polyhedron defining the state space occupied by the j'th agent on the k'th timestep:
 
-`catkin_make`
-Then source the workspace either by running this (one time use):
-`source devel/setup.bash`
-OR (always load it into shell): 
-`echo "source ~/catkin_ws/devel/setup.bash" >> ~/.bashrc`
+$$ \mathcal{A_j^{k}} = \{x \in \mathbb{R}^n | A^k_j x \leq b \} $$  
 
-### Arduino Nano Sketches
-I have written several test nodes to test your nano, setup the motors, test the imu, etc. Moreover, the Arduino Nano is in charge of all low level control of the drone. You need to install my scripts. First install the Arduino IDE for ubuntu: 
+Theoretically it could be possible for the control problem to become infeasible if too many points in the Safe-Set have to be removed, as dynamic or input constraints might make it impossible to reach the remaining points in the Safe-Set. However, in practice this is not much of in issue, primarily because a single lap around a track already provides enough data for at least one feasible point to remain in the adjusted Safe-Set. Moreover, predictive control problems are almost always (also in this case) implemented using slack variables on most constraints. This is because in the case that a collision cannot be avoided, one would still want the cars to crash as softly as possible. This opposes a hard implementation where the problem becomes infeasible, no new control action is computed, and the cars crash at full speed. 
 
-`sudo apt-get install arduino`
+The second adjustement to the problem that needs to be made is that the feasible state space at each timestep in the control problem needs to be adjusted to prevent collisions with the predicted states of the other agents: 
 
-Then install the rosserial package and the ros_lib by going [here](http://wiki.ros.org/rosserial_arduino/Tutorials/Arduino%20IDE%20Setup) and following the required steps. I use ROS Kinetic, so please follow those instructions. 
+$$ \mathcal{X_k}^{adj} = \mathcal{X_k} \setminus \mathcal{A_j^{k}} \ \ \ \ \forall k \in [t, \dots, t + N] $$
 
-After this, install the Adafruit libraries for the BNO055 IMU, instructions can be found [here](https://learn.adafruit.com/adafruit-bno055-absolute-orientation-sensor/arduino-code).
+This ensures that the trajectory planned along the prediction horizon is safe. A significant consideration that must be made in performing this operation is whether convexity of the problem is maintained or not. In general, an LMPC problem need not be convex, but in practical implementations, ensuring convexity maintains rapid convergence to solutions required for real-time applications. Quite obviously, removing a rectangular region in the middle of the track from the feasible state space, when the rest of the racetrack is still feasible, immediately reduces the feasible state space into a non-convex set. Intuitively speaking, it might not always be obvious whether an overtaking manoevre is better on the right or on the left, further illustrating this non-convexity. 
 
-Then get my sketches by downloading this [repo](https://github.com/GoldeneyeRohan/RDRONE_NANO) and put them in your sketchbook directory. Now you can compile and upload my code to your arduino. A usefull command to figure out what USB port your nano is connected to is: 
+To deal with such issues it makes sense to introduce a heuristic or classifier that selects whether an overtaking manoevre must be completed on the left or on the right. Given such information, convex state constraints can be formulated that improve the performance of the solvers and the quality of the solutions. Alternatively, if enough computational power is present, two CFTOC problems can be solved at the same time, one for a left overtake, and one for a right overtake. Since the terminal state is constrained to lie in the Safe-Set, the estimate of the cost-to-go can then determine which overtaking manoevre is stratigically more optimal for the entire control task, improving racing performance.  
 
-`ls -l /dev | grep ttyUSB`
+![Green vehicle executing the LMPC strategy avoids and overtakes the blue car](/images/overtake.jpg)  
 
-To instantiate your Arduino as a node, run the command: 
+[^fn1]: U. Rosolia and F. Borrelli: "Learning Model Predictive Control for Iterative Task. A Data-Driven Control Framework", in IEEE Transaction on Automatic Control (2018).
 
-`rosrun rosserial_python serial_node.py /dev/ttyUSB*` 
-
-Where `*` should be changed to the usb port the nano is listening on. Don't forget to start the ros master first with `roscore`
-
-## Hardware Setup
-### IMU: 
-Follow this [guide](https://learn.adafruit.com/adafruit-bno055-absolute-orientation-sensor/pinouts). The Arduino Nano has the exact same hardware specs as the UNO (ATMega 328), so the pinout is the same. Take advantage of the shield's VGS connectors. 
+[^fn2]: Brunner M., Rosolia U., Gonzales J. and Borrelli F. (2017), "Repetitive Learning Model Predictive Control: An Autonomous Racing Example", In Proceedings of 56th Conference on Decision and Control, 12, 2017.
