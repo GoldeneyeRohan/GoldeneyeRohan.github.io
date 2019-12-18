@@ -1,22 +1,20 @@
 ---
-title: "Data-Poisoning of Linear Models"
-excerpt: "Algorithms for constructing data-poisoning attacks on Linear Models using Semi-Definite Programming <br/><img src='/images/dpois_fpic.jpg'>"
+title: "RISC-V CPU Design"
+excerpt: "Fully pipelined RISC-V CPU design (ALU, RegFile, Datapath, Control) in logic gate simulator <br/><img src='/images/datapath_fpic.jpg'>"
 collection: portfolio
 ---
-Data-Poisoning is a general term to refer to training-time adversarial attacks, where an adversary has the ability to alter some subset of the training-data before a model is learned. Through this perturbation, the adversary coerces the learner to learn a corrupted model in line with the adversary's goals. When compared to the traditional robustness problem, training-time attacks have been comparatively understudied, even though they are have the potential to severely impact the performance of learned models. In application, large datasets are generated from external sources by scraping the internet, and an adversary could easily insert a small number of corrupted samples into training data to alter a learned model. Adhyyan Narang, Anand Siththaranjan, Forest Yang, and I studied the data-poisoning problem on simple linear models such as ridge and logistic regression as a course project for EECS227B under Prof. Laurent El Ghaoui and Prof. Somayeh Sojoudi. We proposed algorithms to create near-optimal (and in some cases optimal) data-poisoning attacks reliant on semi-definite programming, and are planning to release a preprint in December 2019. 
+As the capping project of the Computer Architecture class at UC Berkeley, I designed and built a fully functioning 32-bit CPU implementing the RISC-V Instruction Set Architecture using a logic gate simulation software package called [Logisim](http://www.cburch.com/logisim/). The Reduced Instruction Set Computing paradigm was invented at UC Berkeley by Dave Patterson and John Hennessey, won a Turing award in 2017, and is now used in over 99% of all new chips [^fn1]. Besides this project, the Turing Award Colloquium special lecture given by Prof. Patterson was a real highlight of the course. 
 
-Intuitively, we can think of an adversarial attack as a game between the adversary (who can modify the data), and the learner (who needs to pick the model). If the learner has to pick first, we have the standard _adversarial robustness_ problem:
+The CPU was designed from scratch. First we created a Register File from flip-flop circuits and an Arithmetic Logic Unit from basic logic and arithmetic circuits. After this the 5 stages in the datapath were implemented using the ALU and Register File, and the control circuits were designed. These 5 phases in every computer instruction are: 
 
-$$
-    p^* = \min_{f\in\mathcal{F}} \max_{X\in\mathcal X}\; L(f, X, y)
-$$
+1. Instruction Fetch - where the next instruction to be executed is fetched from memory
+2. Instruction Decode - where the instruction is decoded by the control logic so the proper control signals can be given
+3. Execution - where the ALU executes the instruction
+4. Memory Access - where load and store instructions are able to access memory
+5. Register Write Back - where results are written back to the the registers in the CPU
 
-If the attacker goes first, we have the _data-poisoning}_ problem:
+The CPU we built was pipelined to improve clock frequency, and can run any single-threaded (C) program. 
 
-$$    d^* = \max_{X\in\mathcal X} \min_{f\in\mathcal{F}}\; L(f, X, y) $$
+![CPU pic](/images/datapath.jpg) 
 
-Weak duality holds: $$d^*\leq p^* $$.
-However, $$p^*$$ often corresponds to a convex problem (if the $$L$$ is convex in $$X$$ and $$f$$), but $$d^*$$ does not. This motivates the use of convex relaxation techniques to generate data-poisoning attacks.
-
-
- 
+[^fn1]: https://www.nytimes.com/2018/03/21/technology/computer-chips-turing-award.html 
