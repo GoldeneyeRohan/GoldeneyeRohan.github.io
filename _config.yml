@@ -243,7 +243,14 @@ defaults:
       layout: talk
       author_profile: true
       share: true
-
+  # _technicalreports
+  - scope:
+      path: ""
+      type: technicalreports
+    values:
+      layout: rep
+      author_profile: true
+      share: true
 # Sass/SCSS
 sass:
   sass_dir: _sass
