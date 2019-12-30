@@ -8,7 +8,7 @@ redirect_from:
   - /about.html
 ---
 
-I am a senior year undergraduate at the University of California, Berkeley, double majoring in Mechanical Engineering and Computer Science. I grew up in Eindhoven, the Netherlands, and came to the United States for university three years ago. Currently, I am most interested in learning-based control in robotics and autonomous systems. Outside the classroom I am involved in research on campus and the California Sailing Team.
+I am a senior year undergraduate at the University of California, Berkeley, double majoring in Mechanical Engineering and Computer Science. I grew up in Eindhoven, the Netherlands, and came to the United States for university four years ago. Currently, I am most interested in learning-based control in robotics and autonomous systems. Outside the classroom I am involved in research on campus and the California Sailing Team.
 
 This past summer, I began work with Professor [Benjamin Recht](https://people.eecs.berkeley.edu/~brecht/) on learning control for autonomous racing in unstructured, cluttered environments from visual sensor input. This work is affiliated with the Berkeley Artificial Intelligence Lab [(BAIR)](https://bair.berkeley.edu/). In addition, I work on convergence analysis of Learning Model Predictive Control policies on stochastic systems under Professor Francesco Borrelli in the [Model Predictive Control Lab](http://www.mpc.berkeley.edu/), where I previously worked on decentralized data-driven control strategies for autonomous racing with multiple agents.
 
