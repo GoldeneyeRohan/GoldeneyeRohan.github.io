@@ -14,3 +14,9 @@ author_profile: true
 {% for post in site.publications reversed %}
   {% include archive-single.html %}
 {% endfor %}
+
+# Technical Reports
+
+{% for post in site.technicalreports reversed %}
+  {% include archive-rep.html %}
+{% endfor %}
