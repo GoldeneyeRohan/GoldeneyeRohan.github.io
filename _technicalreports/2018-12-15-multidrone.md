@@ -1,6 +1,6 @@
 ---
 title: "MPC Control of Multiple Quadcopters Cooperatively Lifting an Object"
-collection: publications
+collection: technicalreports
 permalink: /publication/2018-12-15-multidrone
 excerpt: 'Decentralized Model Predictive Control of Multiple Quadcopters lifting an object with cables.'
 date: 2018-12-15
