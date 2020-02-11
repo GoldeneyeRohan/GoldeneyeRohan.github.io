@@ -16,7 +16,8 @@ If the attacker goes first, we have the _data-poisoning}_ problem:
 $$    d^* = \max_{X\in\mathcal X} \min_{f\in\mathcal{F}}\; L(f, X, y) $$
 
 Weak duality holds: $$d^*\leq p^* $$.
-However, $$p^*$$ often corresponds to a convex problem (if the $$L$$ is convex in $$X$$ and $$f$$), but $$d^*$$ does not. This motivates the use of convex relaxation techniques to generate data-poisoning attacks.
+However, $$p^*$$ often corresponds to a convex problem (if the $$L$$ is convex in $$X$$ and $$f$$), but $$d^*$$ does not. This motivates the use of convex relaxation techniques to generate data-poisoning attacks. This work is currently in progress, but a technical report is currently available [here](/files/227B_Project_Report.pdf)
+
 
 
  
