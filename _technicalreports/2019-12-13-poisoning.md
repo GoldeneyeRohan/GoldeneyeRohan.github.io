@@ -10,4 +10,4 @@ citation: 'A. Narang, R. Sinha, A. Siththaranjan, F. Yang, &quot;Data-Poisoning 
 ---
 See [this link](https://rohansinha.nl/portfolio/projects-4/) for more information. 
 
-[Download paper here](/files/227B_Project_Report.pdf.pdf)
+[Download paper here](/files/227B_Project_Report.pdf)
