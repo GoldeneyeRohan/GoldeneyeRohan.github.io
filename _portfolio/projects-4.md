@@ -3,7 +3,7 @@ title: "Data-Poisoning of Linear Models"
 excerpt: "Algorithms for constructing data-poisoning attacks on Linear Models using Semi-Definite Programming [(read more)](https://rohansinha.nl/portfolio/projects-4/) <br/><img src='/images/dpois_fpic.jpg'> "
 collection: portfolio
 ---
-Data-Poisoning is a general term to refer to training-time adversarial attacks, where an adversary has the ability to alter some subset of the training-data before a model is learned. Through this perturbation, the adversary coerces the learner to learn a corrupted model in line with the adversary's goals. When compared to the traditional robustness problem, training-time attacks have been comparatively understudied, even though they are have the potential to severely impact the performance of learned models. In applications, large datasets are generated from external sources by scraping the internet, and an adversary could easily insert a small number of corrupted samples into training data to alter a learned model. Adhyyan Narang, Anand Siththaranjan, Forest Yang, and I studied the data-poisoning problem on simple linear models such as ridge and logistic regression as a course project for EECS227B under Prof. Laurent El Ghaoui and Prof. Somayeh Sojoudi. We proposed algorithms to create near-optimal (and in some cases optimal) data-poisoning attacks reliant on semi-definite programming, and are planning to release a preprint in December 2019. 
+Data-Poisoning is a general term used in machine learning to refer to training-time adversarial attacks, where an adversary has the ability to alter some subset of the training-data before a model is learned. Through this perturbation, the adversary coerces the learner to learn a corrupted model with some goal in mind. When compared to the traditional robustness problem, training-time attacks have been comparatively understudied even though they have the potential to severely impact the performance of learned models. In applications, large datasets are generated from external sources by scraping the internet, and an adversary could easily insert a small number of corrupted samples into training data to alter a learned model. Adhyyan Narang, Anand Siththaranjan, Forest Yang, and I studied the data-poisoning problem on simple linear models such as ridge and logistic regression as a course project for EECS227B under Prof. Laurent El Ghaoui and Prof. Somayeh Sojoudi. We proposed algorithms to create near-optimal (and in some cases optimal) data-poisoning attacks reliant on semi-definite programming, and are continuing this work under Prof. El Ghaoui. Although this work is in progress, an initial technical report is currently available [here](/files/227B_Project_Report.pdf).
 
 Intuitively, we can think of an adversarial attack as a game between the adversary (who can modify the data), and the learner (who needs to pick the model). If the learner has to pick first, we have the standard _adversarial robustness_ problem:
 
@@ -11,12 +11,12 @@ $$
     p^* = \min_{f\in\mathcal{F}} \max_{X\in\mathcal X}\; L(f, X, y)
 $$
 
-If the attacker goes first, we have the _data-poisoning}_ problem:
+If the attacker goes first, we have the _data-poisoning_ problem:
 
 $$    d^* = \max_{X\in\mathcal X} \min_{f\in\mathcal{F}}\; L(f, X, y) $$
 
 Weak duality holds: $$d^*\leq p^* $$.
-However, $$p^*$$ often corresponds to a convex problem (if the $$L$$ is convex in $$X$$ and $$f$$), but $$d^*$$ does not. This motivates the use of convex relaxation techniques to generate data-poisoning attacks. This work is currently in progress, but a technical report is currently available [here](/files/227B_Project_Report.pdf)
+However, $$p^*$$ often corresponds to a convex problem (if the $$L$$ is convex in $$X$$ and $$f$$), but $$d^*$$ does not. This motivates the use of convex relaxation techniques to generate data-poisoning attacks. 
 
 
 
