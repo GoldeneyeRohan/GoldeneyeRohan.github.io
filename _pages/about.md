@@ -7,6 +7,7 @@ redirect_from:
   - /about/
   - /about.html
 ---
+OLD WEBSITE INDEXED ON SEPT. 2, 2023
 
 I am a senior year undergraduate at the University of California, Berkeley, double majoring in Mechanical Engineering and Computer Science. I grew up in Eindhoven, the Netherlands, and came to the United States for university four years ago. Currently, I am most interested in learning-based control in robotics and autonomous systems. Outside the classroom I am involved in research on campus and the California Sailing Team.
 
