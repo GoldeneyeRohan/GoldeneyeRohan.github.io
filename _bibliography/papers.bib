@@ -720,6 +720,19 @@
 @string{pub_Wiley                      = {{John Wiley \& Sons}}}
 @string{pub_WSP                        = {{World Scientific Publishing}}}
 @string{equal = {\textit{*equal contribution}}}
+
+
+@article{SinhaSharmaEtAl2022,
+	title        = {A {System}-{Level} {View} on {Out}-of-{Distribution} {Data} in {Robotics}},
+	author       = {Sinha, R. and Sharma, S. and Banerjee, S. and Lew, T. and Luo, R. and Richards, S. M. and Sun, Y. and Schmerling, E. and Pavone, M.},
+	year         = 2022,
+	journal      = {arXiv preprint arXiv:2212.14020},
+	selected     = True,
+	preview 	 = {timescales.png},
+	abstract     = {When testing conditions differ from those represented in training data, so-called out-of-distribution (OOD) inputs can mar the reliability of learned components in the modern robot autonomy stack. Therefore, coping with OOD data is an important challenge on the path towards trustworthy learning-enabled open-world autonomy. In this paper, we aim to demystify the topic of OOD data and its associated challenges in the context of data-driven robotic systems, drawing connections to emerging paradigms in the ML community that study the effect of OOD data on learned models in isolation. We argue that as roboticists, we should reason about the overall \textit{system-level} competence of a robot as it operates in OOD conditions. We highlight key research questions around this system-level view of OOD problems to guide future research toward safe and reliable learning-enabled autonomy.},
+	arxiv        = {2212.14020}
+}
+
 @inproceedings{SinhaHarrisonEtAl2022,
 	title        = {Adaptive {Robust} {Model} {Predictive} {Control} with {Matched} and {Unmatched} {Uncertainty}},
 	author       = {Sinha, R. and Harrison, J. and Richards, S. M. and Pavone, M.},
@@ -744,16 +757,6 @@
 	arxiv		 = {2212.01371},
 }
 
-@article{SinhaSharmaEtAl2022,
-	title        = {A {System}-{Level} {View} on {Out}-of-{Distribution} {Data} in {Robotics}},
-	author       = {Sinha, R. and Sharma, S. and Banerjee, S. and Lew, T. and Luo, R. and Richards, S. M. and Sun, Y. and Schmerling, E. and Pavone, M.},
-	year         = 2022,
-	journal      = {arXiv preprint arXiv:2212.14020},
-	selected     = True,
-	preview 	 = {timescales.png},
-	abstract     = {When testing conditions differ from those represented in training data, so-called out-of-distribution (OOD) inputs can mar the reliability of learned components in the modern robot autonomy stack. Therefore, coping with OOD data is an important challenge on the path towards trustworthy learning-enabled open-world autonomy. In this paper, we aim to demystify the topic of OOD data and its associated challenges in the context of data-driven robotic systems, drawing connections to emerging paradigms in the ML community that study the effect of OOD data on learned models in isolation. We argue that as roboticists, we should reason about the overall \textit{system-level} competence of a robot as it operates in OOD conditions. We highlight key research questions around this system-level view of OOD problems to guide future research toward safe and reliable learning-enabled autonomy.},
-	arxiv        = {2212.14020}
-}
 @inproceedings{SinhaSchmerlingEtAl2023,
 	title        = {Closing the Loop on Runtime Monitors with Fallback-Safe MPC},
 	author       = {Sinha, R. and Schmerling, E. and Pavone, M.},
@@ -786,10 +789,11 @@
 	preview      = {anomaly_stop_sign.gif},
 	arxiv        = {2305.11307}
 }
-@inproceedings{LuoSinhaEtAl2023,
+@article{LuoSinhaEtAl2023,
 	title        = {Online Distribution Shift Detection via Recency Prediction},
 	author       = {Luo, R. and Sinha, R. and Hindy, A. and Zhao, S. and Savarese, S. and Schmerling, E. and Pavone, M.},
 	year         = 2023,
+	journal      = {arxiv preprint, arxiv:2211.09916}
 	selected     = True,
 	preview      = {FF.gif},
 	abstract     = {When deploying modern machine learning-enabled robotic systems in high-stakes applications, detecting distribution shift is critical. However, most existing methods for detecting distribution shift are not well-suited to robotics settings, where data often arrives in a streaming fashion and may be very high-dimensional. In this work, we present an online method for detecting distribution shift with guarantees on the false positive rate - i.e., when there is no distribution shift, our system is very unlikely (with probability <ϵ) to falsely issue an alert; any alerts that are issued should therefore be heeded. Our method is specifically designed for efficient detection even with high dimensional data, and it empirically achieves up to 11x faster detection on realistic robotics settings compared to prior work while maintaining a low false negative rate in practice (whenever there is a distribution shift in our experiments, our method indeed emits an alert).},
