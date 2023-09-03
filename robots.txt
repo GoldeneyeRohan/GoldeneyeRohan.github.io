@@ -1,0 +1,4 @@
+User-agent: *
+Disallow:
+
+Sitemap: GoldeneyeRohan.github.io/sitemap.xml
