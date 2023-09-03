@@ -1,30 +1,30 @@
 ---
+layout: about
+title: about
 permalink: /
-title: "About"
-excerpt: "About me"
-author_profile: true
-redirect_from: 
-  - /about/
-  - /about.html
+subtitle: <strong> rhnsinha [at] stanford [dot] edu </strong>
+
+profile:
+  align: right
+  image: prof_pic.jpg
+  image_circular: false # crops the image to make it circular
+  address: >
+    <p>PhD Candidate</p>
+    <p>Autonomous Systems Lab</p>
+    <p>Stanford University</p>
+
+news: true  # includes a list of news items
+latest_posts: False  # includes a list of the newest posts
+selected_papers: true # includes a list of papers marked as "selected={true}"
+social: true  # includes social icons at the bottom of the page
 ---
 
-I am a senior year undergraduate at the University of California, Berkeley, double majoring in Mechanical Engineering and Computer Science. I grew up in Eindhoven, the Netherlands, and came to the United States for university four years ago. Currently, I am most interested in learning-based control in robotics and autonomous systems. Outside the classroom I am involved in research on campus and the California Sailing Team.
+I am a third year PhD candidate in the department of Aeronautics and Astronautics at Stanford University, where I am a member of the **[Autonomous Systems Lab](https://stanfordasl.github.io/)** advised by **[Prof. Marco Pavone](https://web.stanford.edu/~pavone/)**. 
 
-This past summer, I began work with Professor [Benjamin Recht](https://people.eecs.berkeley.edu/~brecht/) on learning control for autonomous racing in unstructured, cluttered environments from visual sensor input. This work is affiliated with the Berkeley Artificial Intelligence Lab [(BAIR)](https://bair.berkeley.edu/). In addition, I work on convergence analysis of Learning Model Predictive Control policies on stochastic systems under Professor Francesco Borrelli in the [Model Predictive Control Lab](http://www.mpc.berkeley.edu/), where I previously worked on decentralized data-driven control strategies for autonomous racing with multiple agents.
+My research focuses on developing methodologies that improve the reliability of ML-enabled robotic systems, particularly when these systems encounter **[out-of-distribution](https://arxiv.org/abs/2212.14020)** conditions with respect to their training data. Broadly, my research interests lie at the intersection of control theory, machine learning, and applied robotics. 
 
-<!-- 
-I believe that thorough knowledge of an entire autonomous system is integral to its successful implementation: from the vehicle's design, its mechanics and dynamics, to the algorithms that control it and the circuits that drive it.
- -->
- 
-<!-- | Desired Properties | Model-Based Control | Learned Approaches |
-|---|---|---|
-| Highly Precise Control | :heavy_check_mark: | :x: |
-| Provably Safe Behaviour | [x] |  [] |
-| stuff | <ul><li> [x] stuff </li></ul> | <ul><li>- [x] </li></ul> | 
+Previously, I received bachelor’s degrees in Mechanical Engineering and Computer Science from the University of California, Berkeley with honors and a distinction in general scholarship. As an undergraduate, I worked on data-driven predictive control under **[Prof. Francesco Borrelli](https://me.berkeley.edu/people/francesco-borrelli/)** in the **[Model Predictive Control Lab](https://sites.google.com/berkeley.edu/mpc-lab/home)** and on learning control algorithms that rely on vision systems under **[Prof. Benjamin Recht](http://people.eecs.berkeley.edu/~brecht/)** in the Berkeley Artificial Intelligence Lab. I have also interned as an autonomous driving engineer at Delphi (now [Motional](https://motional.com/)) and as a software engineer at Amazon.
 
-- [x] laas
-- [ ] laas
-- [x] kaas -->
-
-<!-- News
-====== -->
+[//]:# 
+[//]:# Link to your social media connections, too. This theme is set up to use [Font Awesome icons](http://fortawesome.github.io/Font-Awesome/) and [Academicons](https://jpswalsh.github.io/academicons/), like the ones below. Add your Facebook, Twitter, LinkedIn, Google Scholar, or just disable all of them.
+[//]:#  -->

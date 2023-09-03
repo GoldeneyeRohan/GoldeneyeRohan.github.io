@@ -1,12 +1,10 @@
 ---
-layout: archive
-title: "CV"
+layout: cv
 permalink: /cv/
-author_profile: true
-redirect_from:
-  - /resume
+title: cv
+nav: true
+nav_order: 4
+cv_pdf: example_pdf.pdf
+description: 
 ---
 
-{% include base_path %}
-
-To view a PDF copy of my CV, please click [__*here*__](/files/RohanSinhaCV-12-8-2019.pdf).

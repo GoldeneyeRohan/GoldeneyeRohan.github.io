@@ -1,22 +1,14 @@
 ---
-layout: archive
-title: "Publications"
+layout: page
 permalink: /publications/
-author_profile: true
+title: publications and other writing
+description: \* indicates equal contribution.
+nav: true
+nav_order: 1
 ---
+<!-- _pages/publications.md -->
+<div class="publications">
 
-{% if author.googlescholar %}
-  You can also find my articles on <u><a href="{{author.googlescholar}}">my Google Scholar profile</a>.</u>
-{% endif %}
+{% bibliography -f {{ site.scholar.bibliography }} %}
 
-{% include base_path %}
-
-{% for post in site.publications reversed %}
-  {% include archive-single.html %}
-{% endfor %}
-
-# Technical Reports
-
-{% for post in site.technicalreports reversed %}
-  {% include archive-rep.html %}
-{% endfor %}
+</div>
