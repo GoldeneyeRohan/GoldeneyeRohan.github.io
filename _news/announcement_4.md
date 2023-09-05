@@ -5,7 +5,7 @@ inline: true
 related_posts: false
 ---
 
-It was an honor to give an invited talk "Runtime monitoring of learning-based autonomy" at the 2023 **[IEEE Space Mission
+It was an honor to give an invited talk "Towards reliable learning-enabled autonomy throughout its operational lifecycle" at the 2023 **[IEEE Space Mission
 Challenges for Information Technology - IEEE Space Computing Conference](https://smcit-scc.space/workshop-fdas.html)**!
 
 
