@@ -19,7 +19,7 @@ selected_papers: true # includes a list of papers marked as "selected={true}"
 social: true  # includes social icons at the bottom of the page
 ---
 
-I am a PhD candidate in the department of Aeronautics and Astronautics at Stanford University, where I am a member of the **[Autonomous Systems Lab](https://stanfordasl.github.io/)** advised by **[Prof. Marco Pavone](https://web.stanford.edu/~pavone/)**. I currently am also a student researcher at **[Google Deepmind Robotics](https://deepmind.google/), working with **[Sumeet Singh](https://scholar.google.com/citations?user=ZGpE5cYAAAAJ&hl=en)** and **[Vikas Sindhwani](https://vikas.sindhwani.org/)**
+I am a PhD candidate in the department of Aeronautics and Astronautics at Stanford University, where I am a member of the **[Autonomous Systems Lab](https://stanfordasl.github.io/)** advised by **[Prof. Marco Pavone](https://web.stanford.edu/~pavone/)**. I currently am also a student researcher at **[Google Deepmind Robotics](https://deepmind.google/)**, working with **[Sumeet Singh](https://scholar.google.com/citations?user=ZGpE5cYAAAAJ&hl=en)** and **[Vikas Sindhwani](https://vikas.sindhwani.org/)**
 
 My research focuses on developing methodologies that improve the reliability of ML-enabled robotic systems, particularly when these systems encounter **[out-of-distribution](https://arxiv.org/abs/2212.14020)** conditions with respect to their training data. My work on this topic was recognized with the best paper award at **[RSS 2024](https://roboticsconference.org/2024/program/awards/)**. Broadly, my research interests lie at the intersection of control theory, machine learning, and applied robotics. 
 
