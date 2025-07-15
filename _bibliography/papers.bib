@@ -721,6 +721,109 @@
 @string{pub_WSP                        = {{World Scientific Publishing}}}
 @string{equal = {\textit{*equal contribution}}}
 
+@inproceedings{SinhaElhafsiEtAl2024,
+	title        = {Real-Time Anomaly Detection and Reactive Planning with Large Language Models},
+	author       = {Sinha, Rohan and Elhafsi, Amine and Agia, Christopher and Foutter, Matt and Schmerling, Edward and Pavone, Marco},
+	year         = 2024,
+	booktitle    = {{Robotics: Science and Systems}},
+	note         = {(Winner: Outstanding Paper Award (top 0.2%))},
+	keywords     = {pub},
+    url          = {https://tinyurl.com/aesop-llm},
+	selected     = True,
+	preview 	 = {drone_onboard.gif},
+	abstract     = {Foundation models, e.g., large language models (LLMs), trained on internet-scale data possess zero-shot generalization capabilities that make them a promising technology towards detecting and mitigating out-of-distribution failure modes of robotic systems. Fully realizing this promise, however, poses two challenges: (i) mitigating the considerable computational expense of these models such that they may be applied online, and (ii) incorporating their judgement regarding potential anomalies into a safe control framework. In this work, we present a two-stage reasoning framework: First is a fast binary anomaly classifier that analyzes observations in an LLM embedding space, which may then trigger a slower fallback selection stage that utilizes the reasoning capabilities of generative LLMs. These stages correspond to branch points in a model predictive control strategy that maintains the joint feasibility of continuing along various fallback plans to account for the slow reasoner's latency as soon as an anomaly is detected, thus ensuring safety. We show that our fast anomaly classifier outperforms autoregressive reasoning with state-of-the-art GPT models, even when instantiated with relatively small language models. This enables our runtime monitor to improve the trustworthiness of dynamic robotic systems, such as quadrotors or autonomous vehicles, under resource and time constraints.},
+	arxiv        = {2407.08735v1},
+	website      = {https://tinyurl.com/aesop-llm}
+}
+
+@inproceedings{SorokaSinhaEtAl2025,
+	title        = {Learning Temporal Logic Predicates from Data with Statistical Guarantees},
+	author       = {Soroka, Emi and Sinha, Rohan and Lall, Sanjay},
+	year         = 2025,
+	booktitle    = {Proceedings of the 7th Annual Learning for Dynamics \&amp; Control Conference},
+	publisher    = {PMLR},
+	series       = {Proceedings of Machine Learning Research},
+	selected     = False,
+	preview 	 = {system_diagram.pdf},
+	abstract     = {Temporal logic rules are often used in control and robotics to provide structured, human-interpretable descriptions of trajectory data. These rules have numerous applications including safety validation using formal methods, constraining motion planning among autonomous agents, and classifying data. However, existing methods for learning temporal logic predicates from data do not provide assurances about the correctness of the resulting predicate. We present a novel method to learn temporal logic predicates from data with finite-sample correctness guarantees. Our approach leverages expression optimization and conformal prediction to learn predicates that correctly describe future trajectories under mild statistical assumptions. We provide experimental results showing the performance of our approach on a simulated trajectory dataset and perform ablation studies to understand how each component of our algorithm contributes to its performance.},
+	arxiv        = {2406.10449},
+}
+
+@inproceedings{AgiaSinhaEtAl2025,
+	title        = {CUPID: Curating Data your Robot Loves with Influence Functions},
+	author       = {Christopher Agia and Rohan Sinha and Jingyun Yang and Rika Antonova and Marco Pavone and Haruki Nishimura and Masha Itkina and Jeannette Bohg},
+	year         = 2025,
+	booktitle    = {9th Annual Conference on Robot Learning},
+    note 		 = {(under review), (Best Paper Award @ RSS RoboEval Workshop, 2025)},
+	selected     = True,
+	preview 	 = {cupid-teaser.mp4},
+	abstract     = {In robot imitation learning, policy performance is tightly coupled with the quality and composition of the demonstration data. Yet, developing a precise understanding of how individual demonstrations contribute to downstream outcomes - such as closed-loop task success or failure - remains a persistent challenge. We propose CUPID, a robot data curation method based on a novel influence function-theoretic formulation for imitation learning policies. Given a set of evaluation rollouts, CUPID estimates the influence of each training demonstration on the policy's expected return. This enables ranking and selection of demonstrations according to their impact on the policy's closed-loop performance. We use CUPID to curate data by 1) filtering out training demonstrations that harm policy performance and 2) subselecting newly collected trajectories that will most improve the policy. Extensive simulated and hardware experiments show that our approach consistently identifies which data drives test-time performance. For example, training with less than 33% of curated data can yield state-of-the-art diffusion policies on the simulated RoboMimic benchmark, with similar gains observed in hardware. Furthermore, hardware experiments show that our method can identify robust strategies under distribution shift, isolate spurious correlations, and even enhance the post-training of generalist robot policies.},
+	arxiv        = {2506.19121},
+	website      = {https://cupid-curation.github.io/}
+}
+
+@inproceedings{GanaiSinhaEtAl2025,
+	title        = {Real-Time Out-of-Distribution Failure Prevention via Multi-Modal Reasoning},
+	author       = {Milan Ganai and Rohan Sinha* and Christopher Agia* and Daniel Morton and Marco Pavone},
+	year         = 2025,
+	booktitle    = {9th Annual Conference on Robot Learning},
+    note 		 = {(under review)},
+	selected     = False,
+	preview 	 = {fortress.png},
+	abstract     = {Foundation models can provide robust high-level reasoning on appropriate safety interventions in hazardous scenarios beyond a robot's training data, i.e. out-of-distribution (OOD) failures. However, due to the high inference latency of Large Vision and Language Models, current methods rely on manually defined intervention policies to enact fallbacks, thereby lacking the ability to plan generalizable, semantically safe motions. To overcome these challenges we present FORTRESS, a framework that generates and reasons about semantically safe fallback strategies in real time to prevent OOD failures. At a low frequency in nominal operations, FORTRESS uses multi-modal reasoners to identify goals and anticipate failure modes. When a runtime monitor triggers a fallback response, FORTRESS rapidly synthesizes plans to fallback goals while inferring and avoiding semantically unsafe regions in real time. By bridging open-world, multi-modal reasoning with dynamics-aware planning, we eliminate the need for hard-coded fallbacks and human safety interventions. FORTRESS outperforms on-the-fly prompting of slow reasoning models in safety classification accuracy on synthetic benchmarks and real-world ANYmal robot data, and further improves system safety and planning success in simulation and on quadrotor hardware for urban navigation.},
+	arxiv        = {2505.10547},
+	website      = {https://milanganai.github.io/fortress/}
+}
+
+@inproceedings{KwokSinhaEtAl2025,
+	title        = {RoboMonkey: Scaling Test-Time Sampling and Verification for Vision-Language-Action Models},
+	author       = {Jacky Kwok and Rohan Sinha* and Christopher Agia* and Matt Foutter* and Shulu Li and Ion Stoica and Azalia Mirhoseini and Marco Pavone},
+	year         = 2025,
+	booktitle    = {9th Annual Conference on Robot Learning},
+    note         = {(under review)},
+	selected     = False,
+	preview 	 = {inference_scaling.png},
+	abstract     = {Vision-Language-Action (VLA) models have demonstrated remarkable capabilities in visuomotor control, yet ensuring their robustness in unstructured real-world environments remains a persistent challenge. In this paper, we investigate test-time scaling through the lens of sampling and verification as means to enhance the robustness and generalization of VLAs. We first demonstrate that the relationship between action error and the number of generated samples follows an exponentiated power law across a range of VLAs, indicating the existence of inference-time scaling laws. Building on these insights, we introduce RoboMonkey, a test-time scaling framework for VLAs. At deployment, RoboMonkey samples a small set of actions from a VLA, applies Gaussian perturbation and majority voting to construct an action proposal distribution, and then uses a Vision Language Model (VLM)-based verifier to select the optimal action. We propose a synthetic data generation pipeline for training such VLM-based action verifiers, and demonstrate that scaling the synthetic dataset consistently improves verification and downstream accuracy. Through extensive simulated and hardware experiments, we show that pairing existing VLAs with RoboMonkey yields significant performance gains, achieving a 25% absolute improvement on out-of-distribution tasks and 9% on in-distribution tasks. Additionally, when adapting to new robot setups, we show that fine-tuning both VLAs and action verifiers yields a 7% performance increase compared to fine-tuning VLAs alone.},
+	arxiv        = {2506.17811},
+	website      = {https://robomonkey-vla.github.io/}
+}
+
+@inproceedings{AgiaSinhaEtAl2024,
+	title        = {Unpacking Failure Modes of Generative Policies: Runtime Monitoring of Consistency and Progress},
+	author       = {Christopher Agia and Rohan Sinha and Jingyun Yang and Ziang Cao and Rika Antonova and Marco Pavone and Jeannette Bohg},
+	year         = 2024,
+	booktitle    = {8th Annual Conference on Robot Learning},
+	selected     = True,
+	preview 	 = {sentinel-teaser-v3.pdf},
+	abstract     = {Robot behavior policies trained via imitation learning are prone to failure under conditions that deviate from their training data. Thus, algorithms that monitor learned policies at test time and provide early warnings of failure are necessary to facilitate scalable deployment. We propose Sentinel, a runtime monitoring framework that splits the detection of failures into two complementary categories: 1) Erratic failures, which we detect using statistical measures of temporal action consistency, and 2) task progression failures, where we use Vision Language Models (VLMs) to detect when the policy confidently and consistently takes actions that do not solve the task. Our approach has two key strengths. First, because learned policies exhibit diverse failure modes, combining complementary detectors leads to significantly higher accuracy at failure detection. Second, using a statistical temporal action consistency measure ensures that we quickly detect when multimodal, generative policies exhibit erratic behavior at negligible computational cost. In contrast, we only use VLMs to detect failure modes that are less time-sensitive. We demonstrate our approach in the context of diffusion policies trained on robotic mobile manipulation domains in both simulation and the real world. By unifying temporal consistency detection and VLM runtime monitoring, Sentinel detects 18% more failures than using either of the two detectors alone and significantly outperforms baselines, thus highlighting the importance of assigning specialized detectors to complementary categories of failure.},
+	arxiv        = {2410.04640},
+	website      = {https://sites.google.com/stanford.edu/sentinel}
+}
+
+@inproceedings{FoutterBhojEtAl2024,
+	title        = {Adapting a Foundation Model for Space-based Tasks},
+	author       = {Matthew Foutter and Praneet Bhoj and Rohan Sinha and Amine Elhafsi and Somrita Banerjee and Christopher Agia and Justin Kruger and Tommaso Guffanti and Daniele Gammelli and Simone D'Amico and Marco Pavone},
+	year         = 2024,
+	booktitle    = {RSS’24 Workshop on Semantics for Robotics: From Environment Understanding and Reasoning to Safe Interaction},
+	url          = {https://arxiv.org/abs/2408.05924}
+	selected     = False,
+	preview 	 = {spacefm_io.png},
+	abstract     = {Foundation models, e.g., large language models, possess attributes of intelligence which offer promise to endow a robot with the contextual understanding necessary to navigate complex, unstructured tasks in the wild. In the future of space robotics, we see three core challenges which motivate the use of a foundation model adapted to space-based applications: 1) Scalability of ground-in-the-loop operations; 2) Generalizing prior knowledge to novel environments; and 3) Multi-modality in tasks and sensor data. Therefore, as a first-step towards building a foundation model for space-based applications, we automatically label the AI4Mars dataset to curate a language annotated dataset of visual-question-answer tuples. We fine-tune a pretrained LLaVA checkpoint on this dataset to endow a vision-language model with the ability to perform spatial reasoning and navigation on Mars' surface. In this work, we demonstrate that 1) existing vision-language models are deficient visual reasoners in space-based applications, and 2) fine-tuning a vision-language model on extraterrestrial data significantly improves the quality of responses even with a limited training dataset of only a few thousand samples.},
+	arxiv        = {2408.05924},
+}
+
+@inproceedings{FoutterSinhaEtAl2023,
+	title        = {Self-Supervised Model Generalization using Out-of-Distribution Detection},
+	author       = {Matt Foutter and Rohan Sinha and Somrita Banerjee and Marco Pavone},
+	year         = 2023,
+	booktitle    = {First Workshop on Out-of-Distribution Generalization in Robotics at CoRL 2023},
+	url          = {https://openreview.net/forum?id=z5XS3BY13J}
+	selected     = False,
+	preview 	 = {earth_background.jpg},
+	abstract     = {Autonomous agents increasingly rely on learned components to streamline safe and reliable decision making. However, data dissimilar to that seen in training, deemed to be Out-of-Distribution (OOD), creates undefined behavior in the output of our learned-components, which can have detrimental consequences in a safety critical setting such as autonomous satellite rendezvous. In the wild, we typically are exposed to a mix of in-and-out of distribution data where OOD inputs correspond to uncommon and unfamiliar data when a nominally competent system encounters a new situation. In this paper, we propose an architecture that detects the presence of OOD inputs in an online stream of data. The architecture then uses these OOD inputs to recognize domain invariant features between the original training and OOD domain to improve model inference. We demonstrate that our algorithm more than doubles model accuracy on the OOD domain with sparse, unlabeled OOD examples compared to a naive model without such data on shifted MNIST domains. Importantly, we also demonstrate our algorithm maintains strong accuracy on the original training domain, generalizing the model to a mix of in-and-out of distribution examples seen at deployment. Code for our experiment is available at: \url{https://github.com/StanfordASL/CoRL_OODWorkshop_DANN-DL}},
+	website	     = {https://openreview.net/forum?id=z5XS3BY13J}
+}
+
 
 @article{SinhaSharmaEtAl2022,
 	title        = {A {System}-{Level} {View} on {Out}-of-{Distribution} {Data} in {Robotics}},
@@ -738,7 +841,7 @@
 	author       = {Sinha, R. and Harrison, J. and Richards, S. M. and Pavone, M.},
 	year         = 2022,
 	booktitle    = proc_IEEE_ACC,
-	selected     = True,
+	selected     = False,
 	preview      = {ACC-v2.png},
 	abstract	 = {We propose a learning-based robust predictive control algorithm that compensates for significant uncertainty in the dynamics for a class of discrete-time systems that are nominally linear with an additive nonlinear component. Such systems commonly model the nonlinear effects of an unknown environment on a nominal system. We optimize over a class of nonlinear feedback policies inspired by certainty equivalent "estimate-and-cancel" control laws pioneered in classical adaptive control to achieve significant performance improvements in the presence of uncertainties of large magnitude, a setting in which existing learning-based predictive control algorithms often struggle to guarantee safety. In contrast to previous work in robust adaptive MPC, our approach allows us to take advantage of structure (i.e., the numerical predictions) in the a priori unknown dynamics learned online through function approximation. Our approach also extends typical nonlinear adaptive control methods to systems with state and input constraints even when we cannot directly cancel the additive uncertain function from the dynamics. Moreover, we apply contemporary statistical estimation techniques to certify the system’s safety through persistent constraint satisfaction with high probability. Finally, we show in simulation that our method can accommodate more significant unknown dynamics terms than existing methods.},
 	arxiv		 = {2104.08261},
@@ -751,7 +854,7 @@
 	year         = 2022,
 	journal      = jrn_IEEE_TAC,
 	note         = {(under review).},
-	selected     = True,
+	selected     = False,
 	preview		 = {DroneWind.png},
 	abstract	 = {We propose a learning-based robust predictive control algorithm that compensates for significant uncertainty in the dynamics for a class of discrete-time systems that are nominally linear with an additive nonlinear component. Such systems commonly model the nonlinear effects of an unknown environment on a nominal system. We optimize over a class of nonlinear feedback policies inspired by certainty equivalent "estimate-and-cancel" control laws pioneered in classical adaptive control to achieve significant performance improvements in the presence of uncertainties of large magnitude, a setting in which existing learning-based predictive control algorithms often struggle to guarantee safety. In contrast to previous work in robust adaptive MPC, our approach allows us to take advantage of structure (i.e., the numerical predictions) in the a priori unknown dynamics learned online through function approximation. Our approach also extends typical nonlinear adaptive control methods to systems with state and input constraints even when we cannot directly cancel the additive uncertain function from the dynamics. We apply contemporary statistical estimation techniques to certify the system's safety through persistent constraint satisfaction with high probability. Moreover, we propose using Bayesian meta-learning algorithms that learn calibrated model priors to help satisfy the assumptions of the control design in challenging settings. Finally, we show in simulation that our method can accommodate more significant unknown dynamics terms than existing methods and that the use of Bayesian meta-learning allows us to adapt to the test environments more rapidly.},
 	arxiv		 = {2212.01371},
@@ -763,7 +866,6 @@
 	year         = 2023,
 	booktitle    = proc_IEEE_CDC,
 	url          = {https://tinyurl.com/fallback-safe-mpc},
-	note         = {(in press)},
 	selected     = True,
 	preview		 = {FSMPC.gif},
 	abstract     = {When we rely on deep-learned models for robotic perception, we must recognize that these models may behave unreliably on inputs dissimilar from the training data, compromising the closed-loop system's safety. This raises fundamental questions on how we can assess confidence in perception systems and to what extent we can take safety-preserving actions when external environmental changes degrade our perception model's performance. Therefore, we present a framework to certify the safety of a perception-enabled system deployed in novel contexts. To do so, we leverage robust model predictive control (MPC) to control the system using the perception estimates while maintaining the feasibility of a safety-preserving fallback plan that does not rely on the perception system. In addition, we calibrate a runtime monitor using recently proposed conformal prediction techniques to certifiably detect when the perception system degrades beyond the tolerance of the MPC controller, resulting in an end-to-end safety assurance. We show that this control framework and calibration technique allows us to certify the system's safety with orders of magnitudes fewer samples than required to retrain the perception network when we deploy in a novel context on a photo-realistic aircraft taxiing simulator. Furthermore, we illustrate the safety-preserving behavior of the MPC on simulated examples of a quadrotor. We open-source our simulation platform and provide videos of our results at our project page: \url{https://tinyurl.com/fallback-safe-mpc}.},
@@ -775,8 +877,8 @@
 	author       = {Elhafsi, A. and Sinha, R. and Agia, C. and Schmerling, E. and Nesnas, I. A. D and Pavone, M.},
 	year         = 2023,
 	journal      = jrn_Spr_AR,
-	note         = {Special Issue on Large Language Models in Robotics (in press)},
-	selected     = True,
+	note         = {Special Issue on Large Language Models in Robotics},
+	selected     = False,
 	preview      = {anomaly_stop_sign.gif},
 	abstract     = {As robots acquire increasingly sophisticated skills and see increasingly complex and varied environments, the threat of an edge case or anomalous failure is ever present. For example, Tesla cars have seen interesting failure modes ranging from autopilot disengagements due to inactive traffic lights carried by trucks to phantom braking caused by images of stop signs on roadside billboards. These system-level failures are not due to failures of any individual component of the autonomy stack but rather system-level deficiencies in semantic reasoning. Such edge cases, which we call \textit{semantic anomalies}, are simple for a human to disentangle yet require insightful reasoning. To this end, we study the application of large language models (LLMs), endowed with broad contextual understanding and reasoning capabilities, to recognize these edge semantic cases. We introduce a monitoring framework for semantic anomaly detection in vision-based policies to do so. Our experiments evaluate this framework in monitoring a learned policy for object manipulation and a finite state machine policy for autonomous driving and demonstrate that an LLM-based monitor can serve as a proxy for human reasoning. Finally, we provide an extended discussion on the strengths and weaknesses of this approach and motivate a research outlook on how we can further use foundation models for semantic anomaly detection.},
 	arxiv        = {2305.11307}
@@ -793,8 +895,8 @@
 	title        = {Online Distribution Shift Detection via Recency Prediction},
 	author       = {Luo, R. and Sinha, R. and Hindy, A. and Zhao, S. and Savarese, S. and Schmerling, E. and Pavone, M.},
 	year         = 2023,
-	journal      = {arxiv preprint, arxiv:2211.09916},
-	selected     = True,
+	booktitle    = proc_IEEE_ICRA,
+	selected     = False,
 	preview      = {FF.gif},
 	abstract     = {When deploying modern machine learning-enabled robotic systems in high-stakes applications, detecting distribution shift is critical. However, most existing methods for detecting distribution shift are not well-suited to robotics settings, where data often arrives in a streaming fashion and may be very high-dimensional. In this work, we present an online method for detecting distribution shift with guarantees on the false positive rate - i.e., when there is no distribution shift, our system is very unlikely (with probability <ϵ) to falsely issue an alert; any alerts that are issued should therefore be heeded. Our method is specifically designed for efficient detection even with high dimensional data, and it empirically achieves up to 11x faster detection on realistic robotics settings compared to prior work while maintaining a low false negative rate in practice (whenever there is a distribution shift in our experiments, our method indeed emits an alert).},
 	arxiv        = {2211.09916}
@@ -804,7 +906,7 @@
 	author       = {Sinha, R. and Lall, S.},
 	year         = 2022,
 	booktitle    = {Conference on Robot Learning: Workshop on Strategic Multi-Agent Interactions},
-	selected     = True,
+	selected     = False,
 	preview      = {CORL_4WAY.gif},
 	abstract	 = {Autonomous vehicles (AVs) and other agents typically interact in structured environments with rules and conventions that all agents \emph{should} follow, but do not always do, such as in traffic. Therefore, we study 1) how to incorporate these rules and conventions into multi-agent robotics problems and 2) what the implications are for interaction-aware methods for decision making. To do this, we express the rules as linear temporal logical constraints on the joint state trajectory and model the multi-agent interaction as a stochastic game. We learn the likelihood of other agents making decisions that can violate the rules as chance constraints to interpretably represent the tendency of agents to break the rules, rather than implicitly encode it in the agents' preference structure. We dub this framework the cautious Markov game (CMG), for which we efficiently construct policies using robust dynamic programming. We find that we can significantly reduce the conservatism of robust policies by exploiting the rule-based nature of the game on illustrative examples, thereby confirming our intuition that traffic rules significantly reduce the need for inter-agent negotiation.},
 	website	     =  {https://sites.google.com/view/corl-2022-games-workshop/home}
