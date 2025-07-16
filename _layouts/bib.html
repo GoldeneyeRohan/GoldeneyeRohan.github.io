@@ -132,9 +132,9 @@
         </div>
         <div class="periodical">
           {% if entry.note contains 'Award' %}
-            <span style="color: #8C1515; font-weight: bold;">{{ entry.note | strip }}</span>
+           🏆 <span style="color: #8C1515; font-weight: bold;">{{ entry.note | strip }}</span>
           {% else %}
-           🏆 {{ entry.note | strip }}
+            {{ entry.note | strip }}
           {% endif %}
         </div>
         <!-- <div class="periodical">
