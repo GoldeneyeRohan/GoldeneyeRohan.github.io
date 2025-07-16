@@ -730,23 +730,10 @@
 	keywords     = {pub},
     url          = {https://tinyurl.com/aesop-llm},
 	selected     = True,
-	preview 	 = {drone_onboard.gif},
+	preview 	 = {aesop-teaser.gif},
 	abstract     = {Foundation models, e.g., large language models (LLMs), trained on internet-scale data possess zero-shot generalization capabilities that make them a promising technology towards detecting and mitigating out-of-distribution failure modes of robotic systems. Fully realizing this promise, however, poses two challenges: (i) mitigating the considerable computational expense of these models such that they may be applied online, and (ii) incorporating their judgement regarding potential anomalies into a safe control framework. In this work, we present a two-stage reasoning framework: First is a fast binary anomaly classifier that analyzes observations in an LLM embedding space, which may then trigger a slower fallback selection stage that utilizes the reasoning capabilities of generative LLMs. These stages correspond to branch points in a model predictive control strategy that maintains the joint feasibility of continuing along various fallback plans to account for the slow reasoner's latency as soon as an anomaly is detected, thus ensuring safety. We show that our fast anomaly classifier outperforms autoregressive reasoning with state-of-the-art GPT models, even when instantiated with relatively small language models. This enables our runtime monitor to improve the trustworthiness of dynamic robotic systems, such as quadrotors or autonomous vehicles, under resource and time constraints.},
 	arxiv        = {2407.08735v1},
 	website      = {https://tinyurl.com/aesop-llm}
-}
-
-@inproceedings{SorokaSinhaEtAl2025,
-	title        = {Learning Temporal Logic Predicates from Data with Statistical Guarantees},
-	author       = {Soroka, Emi and Sinha, Rohan and Lall, Sanjay},
-	year         = 2025,
-	booktitle    = {Proceedings of the 7th Annual Learning for Dynamics \&amp; Control Conference},
-	publisher    = {PMLR},
-	series       = {Proceedings of Machine Learning Research},
-	selected     = False,
-	preview 	 = {system_diagram.pdf},
-	abstract     = {Temporal logic rules are often used in control and robotics to provide structured, human-interpretable descriptions of trajectory data. These rules have numerous applications including safety validation using formal methods, constraining motion planning among autonomous agents, and classifying data. However, existing methods for learning temporal logic predicates from data do not provide assurances about the correctness of the resulting predicate. We present a novel method to learn temporal logic predicates from data with finite-sample correctness guarantees. Our approach leverages expression optimization and conformal prediction to learn predicates that correctly describe future trajectories under mild statistical assumptions. We provide experimental results showing the performance of our approach on a simulated trajectory dataset and perform ablation studies to understand how each component of our algorithm contributes to its performance.},
-	arxiv        = {2406.10449},
 }
 
 @inproceedings{AgiaSinhaEtAl2025,
@@ -756,7 +743,7 @@
 	booktitle    = {9th Annual Conference on Robot Learning},
     note 		 = {(under review), (Best Paper Award @ RSS RoboEval Workshop, 2025)},
 	selected     = True,
-	preview 	 = {cupid-teaser.mp4},
+	preview 	 = {cupid-teaser.gif},
 	abstract     = {In robot imitation learning, policy performance is tightly coupled with the quality and composition of the demonstration data. Yet, developing a precise understanding of how individual demonstrations contribute to downstream outcomes - such as closed-loop task success or failure - remains a persistent challenge. We propose CUPID, a robot data curation method based on a novel influence function-theoretic formulation for imitation learning policies. Given a set of evaluation rollouts, CUPID estimates the influence of each training demonstration on the policy's expected return. This enables ranking and selection of demonstrations according to their impact on the policy's closed-loop performance. We use CUPID to curate data by 1) filtering out training demonstrations that harm policy performance and 2) subselecting newly collected trajectories that will most improve the policy. Extensive simulated and hardware experiments show that our approach consistently identifies which data drives test-time performance. For example, training with less than 33% of curated data can yield state-of-the-art diffusion policies on the simulated RoboMimic benchmark, with similar gains observed in hardware. Furthermore, hardware experiments show that our method can identify robust strategies under distribution shift, isolate spurious correlations, and even enhance the post-training of generalist robot policies.},
 	arxiv        = {2506.19121},
 	website      = {https://cupid-curation.github.io/}
@@ -788,13 +775,26 @@
 	website      = {https://robomonkey-vla.github.io/}
 }
 
+@inproceedings{SorokaSinhaEtAl2025,
+	title        = {Learning Temporal Logic Predicates from Data with Statistical Guarantees},
+	author       = {Soroka, Emi and Sinha, Rohan and Lall, Sanjay},
+	year         = 2025,
+	booktitle    = {Proceedings of the 7th Annual Learning for Dynamics \&amp; Control Conference},
+	publisher    = {PMLR},
+	series       = {Proceedings of Machine Learning Research},
+	selected     = False,
+	preview 	 = {system_diagram.png},
+	abstract     = {Temporal logic rules are often used in control and robotics to provide structured, human-interpretable descriptions of trajectory data. These rules have numerous applications including safety validation using formal methods, constraining motion planning among autonomous agents, and classifying data. However, existing methods for learning temporal logic predicates from data do not provide assurances about the correctness of the resulting predicate. We present a novel method to learn temporal logic predicates from data with finite-sample correctness guarantees. Our approach leverages expression optimization and conformal prediction to learn predicates that correctly describe future trajectories under mild statistical assumptions. We provide experimental results showing the performance of our approach on a simulated trajectory dataset and perform ablation studies to understand how each component of our algorithm contributes to its performance.},
+	arxiv        = {2406.10449},
+}
+
 @inproceedings{AgiaSinhaEtAl2024,
 	title        = {Unpacking Failure Modes of Generative Policies: Runtime Monitoring of Consistency and Progress},
 	author       = {Christopher Agia and Rohan Sinha and Jingyun Yang and Ziang Cao and Rika Antonova and Marco Pavone and Jeannette Bohg},
 	year         = 2024,
 	booktitle    = {8th Annual Conference on Robot Learning},
 	selected     = True,
-	preview 	 = {sentinel-teaser-v3.pdf},
+	preview 	 = {sentinel-teaser-v3.png},
 	abstract     = {Robot behavior policies trained via imitation learning are prone to failure under conditions that deviate from their training data. Thus, algorithms that monitor learned policies at test time and provide early warnings of failure are necessary to facilitate scalable deployment. We propose Sentinel, a runtime monitoring framework that splits the detection of failures into two complementary categories: 1) Erratic failures, which we detect using statistical measures of temporal action consistency, and 2) task progression failures, where we use Vision Language Models (VLMs) to detect when the policy confidently and consistently takes actions that do not solve the task. Our approach has two key strengths. First, because learned policies exhibit diverse failure modes, combining complementary detectors leads to significantly higher accuracy at failure detection. Second, using a statistical temporal action consistency measure ensures that we quickly detect when multimodal, generative policies exhibit erratic behavior at negligible computational cost. In contrast, we only use VLMs to detect failure modes that are less time-sensitive. We demonstrate our approach in the context of diffusion policies trained on robotic mobile manipulation domains in both simulation and the real world. By unifying temporal consistency detection and VLM runtime monitoring, Sentinel detects 18% more failures than using either of the two detectors alone and significantly outperforms baselines, thus highlighting the importance of assigning specialized detectors to complementary categories of failure.},
 	arxiv        = {2410.04640},
 	website      = {https://sites.google.com/stanford.edu/sentinel}

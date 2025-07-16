@@ -131,8 +131,15 @@
           {{ periodical | strip }}
         </div>
         <div class="periodical">
-          {{ entry.note | strip }}
+          {% if entry.note contains 'Award' %}
+            <span style="color: #8C1515; font-weight: bold;">{{ entry.note | strip }}</span>
+          {% else %}
+           🏆 {{ entry.note | strip }}
+          {% endif %}
         </div>
+        <!-- <div class="periodical">
+          {{ entry.note | strip }}
+        </div> -->
 
           <!-- Links/Buttons -->
           <div class="links">
